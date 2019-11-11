@@ -6,7 +6,7 @@ import (
     "strings"
 )
 
-var opcode_map map[byte]string = map[byte]string{
+var instructions map[byte]string = map[byte]string{
     0x00: "NOP",                0x02: "STAX B",
     0x10: "NOP",                0x03: "INX B",
     0x20: "NOP",                0x13: "INX D",
@@ -51,22 +51,22 @@ func bytes_of(path string) ([]byte, int64, error) {
 func disassemble_bytes(bytes []byte, size int64) ([]string, error) {
     var index int64 = 0
     var argc int64
-    var opcode string
+    var instruction string
     var args []byte
 
     for (index < size) {
-        opcode = opcode_map[bytes[index]]
-        argc = int64(strings.Count(opcode, "%"))
+        instruction = instructions[bytes[index]]
+        argc = int64(strings.Count(instruction, "%"))
         args = bytes[index + 1: index + 1 + argc]
-        opcode = strings.Replace(opcode, "%", "", int(argc))
+        instruction = strings.Replace(instruction, "%", "", int(argc))
         index += argc + 1
 
         for (argc > 0) {
             argc--
-            opcode += fmt.Sprintf("%02x", args[argc])
+            instruction += fmt.Sprintf("%02x", args[argc])
         }
 
-        fmt.Println(opcode)
+        fmt.Println(instruction)
     }
 
     return []string{}, nil
