@@ -58,7 +58,7 @@ func disassemble_bytes(bytes []byte, size int64) ([]string, error) {
         instruction = instructions[bytes[index]]
         argc = int64(strings.Count(instruction, "%"))
         args = bytes[index + 1: index + 1 + argc]
-        instruction = strings.Replace(instruction, "%", "", int(argc))
+        instruction = strings.ReplaceAll(instruction, "%", "")
         index += argc + 1
 
         for (argc > 0) {
