@@ -25,10 +25,8 @@ var instructions map[byte]string = map[byte]string{
 	// carry = !carry	carry = 1
 	0x3f: "CMC",		0x37: "STC",
 	// load value into register pair
-	0x01: "LXI B, %%",
-	0x11: "LXI D, %%",
-	0x21: "LXI H, %%",
-	0x31: "LXI SP, %%",
+	0x01: "LXI B, %%",	0x11: "LXI D, %%",
+	0x21: "LXI H, %%",	0x31: "LXI SP, %%",
 	// load register pair
 	0x0a: "LDAX B",		0x1a: "LDAX D",
 	// load address		store address
@@ -50,10 +48,8 @@ var instructions map[byte]string = map[byte]string{
 	0x23: "INX H",		0x2b: "DCX H",
 	0x33: "INX SP",		0x3b: "DCX SP",
 	// add 16 bit register pair to HL
-	0x09: "DAD B",
-	0x19: "DAD D",
-	0x29: "DAD H",
-	0x39: "DAD SP",
+	0x09: "DAD B",		0x19: "DAD D",
+	0x29: "DAD H", 		0x39: "DAD SP",
 	// Register B
 	0x40: "MOV B, B", 	0x41: "MOV B, C",	0x42: "MOV B, D",
 	0x43: "MOV B, E", 	0x44: "MOV B, H", 	0x45: "MOV B, L",
