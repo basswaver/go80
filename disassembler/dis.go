@@ -14,6 +14,11 @@ var instructions map[byte]string = map[byte]string{
     0x28: "NOP",		0x38: "NOP",
 	// decimal adjust	halt
 	0x27: "DAA",		0x76: "HLT",
+	// databus out		in
+	0xd3: "OUT %", 		0xdb: "IN %"
+	// interrupts
+	// disable			enable
+	0xf3: "DI",			0xfb: "EI"
 	// shift register A
 	// left				right
 	// use bit wrapping
