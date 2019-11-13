@@ -23,7 +23,7 @@ var instructions map[byte]string = map[byte]string{
 	// A = !A
 	0x2f: "CMA",
 	// carry = !carry	carry = 1
-	0x3f: "CMC"			0x37: "STC",
+	0x3f: "CMC",		0x37: "STC",
 	// load value into register pair
 	0x01: "LXI B, %%",
 	0x11: "LXI D, %%",
