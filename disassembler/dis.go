@@ -63,7 +63,7 @@ func disassemble_bytes(bytes []byte, size int64) ([]string, error) {
 
         for (argc > 0) {
             argc--
-            instruction += fmt.Sprintf("%02x", args[argc])
+            instruction += fmt.Sprintf("%02X", args[argc])
         }
 
         fmt.Println(instruction)
