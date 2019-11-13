@@ -36,36 +36,36 @@ var instructions map[byte]string = map[byte]string{
 	0x3c: "INR A",		0x3d: "DCR A",		0x3e: "MVI A, %%",
 
 	0x76: "HLT"
-
-	0x40: "MOV B, B", 	0x41: "MOV B, C",	0x42: "MOV B, D",	// MOV B
+	// MOV B
+	0x40: "MOV B, B", 	0x41: "MOV B, C",	0x42: "MOV B, D",
 	0x43: "MOV B, E", 	0x44: "MOV B, H", 	0x45: "MOV B, L",
 	0x46: "MOV B, M",	0x47: "MOV B, A"
-
-	0x48: "MOV C, B", 	0x49: "MOV C, C",	0x4a: "MOV C, D",	// MOV C
+	// MOV C
+	0x48: "MOV C, B", 	0x49: "MOV C, C",	0x4a: "MOV C, D",
 	0x4b: "MOV C, E", 	0x4c: "MOV C, H", 	0x4d: "MOV C, L",
 	0x4e: "MOV C, M",	0x4f: "MOV C, A"
-
-	0x50: "MOV D, B", 	0x51: "MOV D, C",	0x52: "MOV D, D",	// MOV D
+	// MOV D
+	0x50: "MOV D, B", 	0x51: "MOV D, C",	0x52: "MOV D, D",
 	0x53: "MOV D, E", 	0x54: "MOV D, H", 	0x55: "MOV D, L",
 	0x56: "MOV D, M",	0x57: "MOV D, A"
-
-	0x58: "MOV E, B", 	0x59: "MOV E, C",	0x5a: "MOV E, D",	// MOV E
+	// MOV E
+	0x58: "MOV E, B", 	0x59: "MOV E, C",	0x5a: "MOV E, D",
 	0x5b: "MOV E, E", 	0x5c: "MOV E, H", 	0x5d: "MOV E, L",
 	0x5e: "MOV E, M",	0x5f: "MOV E, A"
-
-	0x60: "MOV H, B", 	0x61: "MOV H, C",	0x62: "MOV H, D",	// MOV H
+	// MOV H
+	0x60: "MOV H, B", 	0x61: "MOV H, C",	0x62: "MOV H, D",
 	0x63: "MOV H, E", 	0x64: "MOV H, H", 	0x65: "MOV H, L",
 	0x66: "MOV H, M",	0x67: "MOV H, A"
-
-	0x68: "MOV L, B", 	0x69: "MOV L, C",	0x6a: "MOV L, D",	// MOV L
+	// MOV L
+	0x68: "MOV L, B", 	0x69: "MOV L, C",	0x6a: "MOV L, D",
 	0x6b: "MOV L, E", 	0x6c: "MOV L, H", 	0x6d: "MOV L, L",
 	0x6e: "MOV L, M",	0x6f: "MOV L, A"
-
-	0x70: "MOV M, B", 	0x71: "MOV M, C",	0x72: "MOV M, D",	// MOV M
+	// MOV M
+	0x70: "MOV M, B", 	0x71: "MOV M, C",	0x72: "MOV M, D",
 	0x73: "MOV M, E", 	0x74: "MOV M, H", 	0x75: "MOV M, L",
 						0x77: "MOV M, A"
-
-	0x78: "MOV A, B", 	0x79: "MOV A, C",	0x7a: "MOV A, D",	// MOV A
+	// MOV A
+	0x78: "MOV A, B", 	0x79: "MOV A, C",	0x7a: "MOV A, D",
 	0x7b: "MOV A, E", 	0x7c: "MOV A, H", 	0x7d: "MOV A, L",
 	0x7e: "MOV A, M",	0x7f: "MOV A, A"
 }
