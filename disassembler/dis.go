@@ -18,7 +18,7 @@ var instructions map[byte]string = map[byte]string{
 	0xd3: "OUT %", 		0xdb: "IN %"
 	// interrupts
 	// disable			enable
-	0xf3: "DI",			0xfb: "EI"
+	0xf3: "DI",			0xfb: "EI",
 	// shift register A
 	// left				right
 	// use bit wrapping
