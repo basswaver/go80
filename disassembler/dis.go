@@ -1,9 +1,9 @@
 package disassembler
 
 import (
-    "os"
-    "fmt"
-    "strings"
+	"fmt"
+	"os"
+	"strings"
 )
 
 var instructions map[byte]string = map[byte]string{
@@ -22,64 +22,64 @@ var instructions map[byte]string = map[byte]string{
 }
 
 func bytes_of(path string) ([]byte, int64, error) {
-    var stat os.FileInfo
-    var err error
-    stat, err = os.Stat(path)
+	var stat os.FileInfo
+	var err error
+	stat, err = os.Stat(path)
 
-    if (err != nil) {
-        return make([]byte, 0), 0, err
-    }
+	if err != nil {
+		return make([]byte, 0), 0, err
+	}
 
-    var size int64
-    size = stat.Size()
+	var size int64
+	size = stat.Size()
 
-    var bytes []byte = make([]byte, size)
+	var bytes []byte = make([]byte, size)
 
-    var file *os.File
-    file, err = os.Open(path)
+	var file *os.File
+	file, err = os.Open(path)
 
-    if (err != nil) {
-        return bytes, size, err
-    }
+	if err != nil {
+		return bytes, size, err
+	}
 
-    defer file.Close()
-    file.Read(bytes)
+	defer file.Close()
+	file.Read(bytes)
 
-    return bytes, size, nil
+	return bytes, size, nil
 }
 
 func disassemble_bytes(bytes []byte, size int64) ([]string, error) {
-    var index int64 = 0
-    var argc int64
-    var instruction string
-    var args []byte
+	var index int64 = 0
+	var argc int64
+	var instruction string
+	var args []byte
 
-    for (index < size) {
-        instruction = instructions[bytes[index]]
-        argc = int64(strings.Count(instruction, "%"))
-        args = bytes[index + 1: index + 1 + argc]
-        instruction = strings.ReplaceAll(instruction, "%", "")
-        index += argc + 1
+	for index < size {
+		instruction = instructions[bytes[index]]
+		argc = int64(strings.Count(instruction, "%"))
+		args = bytes[index+1 : index+1+argc]
+		instruction = strings.ReplaceAll(instruction, "%", "")
+		index += argc + 1
 
-        for (argc > 0) {
-            argc--
-            instruction += fmt.Sprintf("%02X", args[argc])
-        }
+		for argc > 0 {
+			argc--
+			instruction += fmt.Sprintf("%02X", args[argc])
+		}
 
-        fmt.Println(instruction)
-    }
+		fmt.Println(instruction)
+	}
 
-    return []string{}, nil
+	return []string{}, nil
 }
 
 func push(array *[]string, item string) {
-    var new []string = append(*array, item)
-    array = &new
+	var new []string = append(*array, item)
+	array = &new
 }
 
 func T() {
-    var bytes []byte
-    var size int64
-    bytes, size, _ = bytes_of("./source/invaders.h")
-    disassemble_bytes(bytes, size)
+	var bytes []byte
+	var size int64
+	bytes, size, _ = bytes_of("./source/invaders.h")
+	disassemble_bytes(bytes, size)
 }
