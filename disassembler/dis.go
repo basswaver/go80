@@ -8,15 +8,15 @@ import (
 
 var instructions map[byte]string = map[byte]string{
     0x00: "NOP",		0x02: "STAX B",  	0x12: "STAX D",
-    0x10: "NOP",		0x03: "INX B",   	0x06: "MVI B, %",
-    0x20: "NOP",		0x13: "INX D",   	0x16: "MVI D, %",
-    0x30: "NOP",		0x23: "INX H",   	0x26: "MVI H, %",
-    0x08: "NOP",		0x33: "INX SP",  	0x36: "MVI M, %",
+    0x10: "NOP",		0x03: "INX B",
+    0x20: "NOP",		0x13: "INX D",
+    0x30: "NOP",		0x23: "INX H",
+    0x08: "NOP",		0x33: "INX SP",
     0x18: "NOP",
-    0x28: "NOP",		0x04: "INR B",   	0x05: "DCR B",
-    0x38: "NOP",		0x14: "INR D",   	0x15: "DCR D",
-    0x01: "LXI B, %%",	0x24: "INR H",   	0x25: "DCR H",
-    0x11: "LXI D, %%",	0x34: "INR M",   	0x35: "DCR M",
+    0x28: "NOP",
+    0x38: "NOP",
+    0x01: "LXI B, %%",
+    0x11: "LXI D, %%",
     0x21: "LXI H, %%",	0x2a: "LHLD %%",
     0x31: "LXI SP, %%",	0x22: "SHLD $%%",
 	0x07: "RLC",		0x17: "RAL",
@@ -30,10 +30,15 @@ var instructions map[byte]string = map[byte]string{
 	0x29: "DAD H",		0x2b: "DCX H",
 	0x39: "DAD SP",		0x3b: "DCX SP",
 
-	0x0c: "INR C",		0x0d: "DCR C",		0x0e: "MVI C, %%",
-	0x1c: "INR E",		0x1d: "DCR E",		0x1e: "MVI E, %%",
-	0x2c: "INR L",		0x2d: "DCR L",		0x2e: "MVI L, %%",
-	0x3c: "INR A",		0x3d: "DCR A",		0x3e: "MVI A, %%",
+	// Increment		Decrement			Store value
+	0x04: "INR B",   	0x05: "DCR B",		0x06: "MVI B, %",
+	0x0c: "INR C",		0x0d: "DCR C",		0x0e: "MVI C, %",
+	0x14: "INR D",   	0x15: "DCR D",		0x16: "MVI D, %",
+	0x1c: "INR E",		0x1d: "DCR E",		0x1e: "MVI E, %",
+	0x24: "INR H",   	0x25: "DCR H",		0x26: "MVI H, %",
+	0x2c: "INR L",		0x2d: "DCR L",		0x2e: "MVI L, %",
+	0x34: "INR M",   	0x35: "DCR M",		0x36: "MVI M, %",
+	0x3c: "INR A",		0x3d: "DCR A",		0x3e: "MVI A, %",
 
 	0x76: "HLT"
 	// MOV B
