@@ -8,17 +8,17 @@ import (
 
 var instructions map[byte]string = map[byte]string{
     0x00: "NOP",                0x02: "STAX B",     0x12: "STAX D",
-    0x10: "NOP",                0x03: "INX B",      0x06: "MVI B, #0x%",
-    0x20: "NOP",                0x13: "INX D",      0x16: "MVI D, #0x%",
-    0x30: "NOP",                0x23: "INX H",      0x26: "MVI H, #0x%",
-    0x08: "NOP",                0x33: "INX SP",     0x36: "MVI M, #0x%",
+    0x10: "NOP",                0x03: "INX B",      0x06: "MVI B, %",
+    0x20: "NOP",                0x13: "INX D",      0x16: "MVI D, %",
+    0x30: "NOP",                0x23: "INX H",      0x26: "MVI H, %",
+    0x08: "NOP",                0x33: "INX SP",     0x36: "MVI M, %",
     0x18: "NOP",
     0x28: "NOP",                0x04: "INR B",      0x05: "DCR B",
     0x38: "NOP",                0x14: "INR D",      0x15: "DCR D",
-    0x01: "LXI B, #0x%%",       0x24: "INR H",      0x25: "DCR H",
-    0x11: "LXI D, #0x%%",       0x34: "INR M",      0x35: "DCR M",
-    0x21: "LXI H, #0x%%",
-    0x31: "LXI SP, #0x%%",      0x22: "SHLD #0x%%", 0x32: "STA #0x%%",
+    0x01: "LXI B, %%",       0x24: "INR H",      0x25: "DCR H",
+    0x11: "LXI D, %%",       0x34: "INR M",      0x35: "DCR M",
+    0x21: "LXI H, %%",
+    0x31: "LXI SP, %%",      0x22: "SHLD %%", 0x32: "STA %%",
 }
 
 func bytes_of(path string) ([]byte, int64, error) {
