@@ -8,10 +8,8 @@ import (
 
 var instructions map[byte]string = map[byte]string{
 	// nothing
-    0x00: "NOP",		0x10: "NOP",
-    0x20: "NOP",		0x30: "NOP",
-    0x08: "NOP",		0x18: "NOP",
-    0x28: "NOP",		0x38: "NOP",
+    0x00: "NOP",		0x10: "NOP",		0x08: "NOP",		0x18: "NOP",
+    0x20: "NOP",		0x30: "NOP",		0x28: "NOP",		0x38: "NOP",
 	// decimal adjust	halt
 	0x27: "DAA",		0x76: "HLT",
 	// databus out		in
