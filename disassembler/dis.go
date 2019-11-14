@@ -109,7 +109,12 @@ var instructions map[byte]string = map[byte]string{
 	// register A comparison
 	0xb8: "CMP B", 		0xb9: "CMP C",		0xba: "CMP D",		0xbb: "CMP E",
 	0xbc: "CMP H",		0xbd: "CMP L",		0xbe: "CMP M", 		0xbf: "CMP A",
-
+	// POP register pair
+	0xc1: "POP B", 		0xd1: "POP D",		0xe1: "POP H",		0xf1: "POP PSW"
+	// PUSH register pair
+	0xc5: "PUSH B",		0xd5: "PUSH D"		0xe5: "PUSH H",		0xf5: "PUSH PSW"
+	// HL <-> STACK[SP]	SP <- HL			H <-> D, L <-> E
+	0xe3: "XTHL"		0xf9: "SPHL"		0xeb: "XCHG"
 }
 
 func bytes_of(path string) ([]byte, int64, error) {
