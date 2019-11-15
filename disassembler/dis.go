@@ -126,6 +126,30 @@ var instructions map[byte]string = map[byte]string{
 	// Restart after interrupt
 	0xc7: "RST 0",		0xcf: "RST 1",		0xd7: "RST 2",		0xdf: "RST 3",
 	0xe7: "RST 4",		0xef: "RST 5",		0xf7: "RST 6",		0xff: "RST 7",
+	// JMP HL
+	0xe9: "PCHL",
+	// return			jump				call
+	// always
+	0xc9: "RET",		0xc3: "JMP $%%",	0xcd: "CALL $%%",
+	0xd9: "RET",		0xcb: "JMP $%%",	0xdd: "CALL $%%",
+											0xed: "CALL $%%",
+											0xfd: "CALL $%%",
+	//if !0
+	0xc0: "RNZ",		0xc2: "JNZ $%%",	0xc4: "CNZ $%%",
+	// if 0
+	0xc8: "RZ",			0xca: "JZ $%%",		0xcc: "CZ $%%",
+	// if !carry
+ 	0xd0: "RNC",		0xd2: "JNC $%%",	0xd4: "CNC $%%",
+	// if carry
+	0xd8: "RC",			0xda: "JC $%%",		0xdc: "CC $%%",
+	// if parity odd
+	0xe0: "RPO",		0xe2: "JPO $%%", 	0xe4: "CPO $%%",
+	// if parity even
+	0xe8: "RPE",		0xea: "JPE $%%",	0xec: "CPE $%%",
+	// if > 0
+	0xf0: "RP",			0xf2: "JP $%%", 	0xf4: "CP $%%",
+	// parity even
+	0xf8: "RM",			0xfa: "JN $%%",		0xfc: "CM $%%",
 }
 
 func bytes_of(path string) ([]byte, int64, error) {
