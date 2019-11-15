@@ -88,33 +88,41 @@ var instructions map[byte]string = map[byte]string{
 	// register A add
 	0x80: "ADD B", 		0x81: "ADD C",		0x82: "ADD D",		0x83: "ADD E",
 	0x84: "ADD H",		0x85: "ADD L",		0x86: "ADD M", 		0x87: "ADD A",
+	0xc6: "ADI %",		// immediate
 	// register A add with carry
 	0x88: "ADC B", 		0x89: "ADC C",		0x8a: "ADC D",		0x8b: "ADC E",
 	0x8c: "ADC H",		0x8d: "ADC L",		0x8e: "ADC M", 		0x8f: "ADC A",
+	0xce: "ACI %",		// immediate
 	// register A subtract
 	0x90: "SUB B", 		0x91: "SUB C",		0x92: "SUB D",		0x93: "SUB E",
 	0x94: "SUB H",		0x95: "SUB L",		0x96: "SUB M", 		0x97: "SUB A",
+	0xd6: "SUI",		// immediate
 	// register A subtract with carry
 	0x98: "SBB B", 		0x99: "SBB C",		0x9a: "SBB D",		0x9b: "SBB E",
 	0x9c: "SBB H",		0x9d: "SBB L",		0x9e: "SBB M", 		0x9f: "SBB A",
+	0xde: "SBI %",		// immediate
 	// register A AND
 	0xa0: "ANA B", 		0xa1: "ANA C",		0xa2: "ANA D",		0xa3: "ANA E",
 	0xa4: "ANA H",		0xa5: "ANA L",		0xa6: "ANA M", 		0xa7: "ANA A",
+	0xe6: "ANI %",		// immediate
 	// register A XOR
 	0xa8: "XRA B", 		0xa9: "XRA C",		0xaa: "XRA D",		0xab: "XRA E",
 	0xac: "XRA H",		0xad: "XRA L",		0xae: "XRA M", 		0xaf: "XRA A",
+	0xee: "XRI %", 		// immediate
 	// register A OR
 	0xb0: "ORA B", 		0xb1: "ORA C",		0xb2: "ORA D",		0xb3: "ORA E",
 	0xb4: "ORA H",		0xb5: "ORA L",		0xb6: "ORA M", 		0xb7: "ORA A",
+	0xf6: "ORI %",		// immediate
 	// register A comparison
 	0xb8: "CMP B", 		0xb9: "CMP C",		0xba: "CMP D",		0xbb: "CMP E",
 	0xbc: "CMP H",		0xbd: "CMP L",		0xbe: "CMP M", 		0xbf: "CMP A",
+	0xfe: "CPI %",		// immediate
 	// POP register pair
-	0xc1: "POP B", 		0xd1: "POP D",		0xe1: "POP H",		0xf1: "POP PSW"
+	0xc1: "POP B", 		0xd1: "POP D",		0xe1: "POP H",		0xf1: "POP PSW",
 	// PUSH register pair
-	0xc5: "PUSH B",		0xd5: "PUSH D"		0xe5: "PUSH H",		0xf5: "PUSH PSW"
+	0xc5: "PUSH B",		0xd5: "PUSH D",		0xe5: "PUSH H",		0xf5: "PUSH PSW",
 	// HL <-> STACK[SP]	SP <- HL			H <-> D, L <-> E
-	0xe3: "XTHL"		0xf9: "SPHL"		0xeb: "XCHG"
+	0xe3: "XTHL",		0xf9: "SPHL",		0xeb: "XCHG",
 }
 
 func bytes_of(path string) ([]byte, int64, error) {
