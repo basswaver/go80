@@ -125,6 +125,7 @@ var instructions map[byte]string = map[byte]string{
 	0xe3: "XTHL",		0xf9: "SPHL",		0xeb: "XCHG",
 	// Restart after interrupt
 	0xc7: "RST 0",		0xcf: "RST 1",		0xd7: "RST 2",		0xdf: "RST 3",
+	0xe7: "RST 4",		0xef: "RST 5",		0xf7: "RST 6",		0xff: "RST 7",
 }
 
 func bytes_of(path string) ([]byte, int64, error) {
